@@ -493,6 +493,31 @@ QBCore.Commands.Add('911p', Lang:t("commands.police_report"), {{name='message', 
     end
 end)
 
+QBCore.Commands.Add("fine", "Give Fine To Person", { { name = "id", help = "Player ID" }, { name = "amount", help = "Amount" } }, true, function(source, args)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local playerId = tonumber(args[1])
+    local amount = tonumber(args[2])
+    local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
+    if Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty then
+        if playerId ~= nil then
+            if Player.PlayerData.citizenid ~= OtherPlayer.PlayerData.citizenid then
+                if amount > 0 then
+                    TriggerClientEvent("police:client:BillCommand", source, playerId, amount)
+                else
+                    TriggerClientEvent('QBCore:Notify', source, "Must Be A Valid Amount Above 0", 'error')
+                end
+            else
+                TriggerClientEvent('QBCore:Notify', source, 'You Cannot Fine Yourself', 'error')
+            end
+        else
+            TriggerClientEvent('QBCore:Notify', source, 'Player Not Online', 'error')
+        end
+    else
+        TriggerClientEvent('QBCore:Notify', source, "This command is for emergency services!", 'error')
+    end
+end)
+
 -- Items
 QBCore.Functions.CreateUseableItem("handcuffs", function(source, item)
     local src = source
