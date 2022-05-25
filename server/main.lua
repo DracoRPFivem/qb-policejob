@@ -514,7 +514,7 @@ QBCore.Commands.Add("fine", "Give Fine To Person", { { name = "id", help = "Play
             TriggerClientEvent('QBCore:Notify', source, 'Player Not Online', 'error')
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "This command is for emergency services!", 'error')
+        TriggerClientEvent('QBCore:Notify', source, "This command is for police only!", 'error')
     end
 end)
 
