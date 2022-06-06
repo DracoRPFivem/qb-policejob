@@ -145,8 +145,19 @@ Config.AuthorizedVehicles = {
 		["sasp4"] = "Chevy Suburban",
 		["sasp9"] = "Nissan Frontier",
 	},
-	-- Grade 4 Police Chief
+	-- Grade 4 Assistant Police Chief
 	[4] = {
+		["sasp8"] = "Ford Interceptor",
+		["sasp9"] = "Nissan Frontier",
+		["sasp14"] = "Ford Explorer Slicktop",
+		["sasp12"] = "Ford Interceptor Slicktop",
+		["sasp7"] = "Ford Patrol",
+		["sasp1"] = "Ford Interceptor",
+        ["sasp2"] = "Ford Interceptor w ram",
+        ["sasp4"] = "Chevy Suburban",
+	},
+    -- Grade 5 Police Chief
+    [5] = {
 		["sasp8"] = "Ford Interceptor",
 		["sasp9"] = "Nissan Frontier",
 		["sasp14"] = "Ford Explorer Slicktop",
